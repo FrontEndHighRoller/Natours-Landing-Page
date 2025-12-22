@@ -1,13 +1,13 @@
 .header {
   height: 85vh;
-  background-image: linear-gradient(
-      to right bottom,
+  background-image: linear-gradient(to right bottom,
       rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
-    ),
+      rgba($color-primary-dark, 0.8)),
     url(../img/hero-small.jpg);
-  background-size: cover; /* whatever the width of element is, cover will always fit the image to the box*/
-  background-position: top; /* it will make sure that top of the image will stay at the position, so in our case bottom of the image get cropped after apply*/
+  background-size: cover;
+  /* whatever the width of element is, cover will always fit the image to the box*/
+  background-position: top;
+  /* it will make sure that top of the image will stay at the position, so in our case bottom of the image get cropped after apply*/
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -26,16 +26,16 @@
 
   &__logo {
     height: 3.5rem;
+
+
   }
 
   @media (min-resolution: 192dpi) and (min-width: 37em),
-    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37em),
-    (min-width: 125em) {
-    background-image: linear-gradient(
-        to right bottom,
+  (-webkit-min-device-pixel-ratio: 2) and (min-width: 37em),
+  (min-width: 125em) {
+    background-image: linear-gradient(to right bottom,
         rgba($color-primary-light, 0.8),
-        rgba($color-primary-dark, 0.8)
-      ),
+        rgba($color-primary-dark, 0.8)),
       url(../img/hero.jpg);
   }
 

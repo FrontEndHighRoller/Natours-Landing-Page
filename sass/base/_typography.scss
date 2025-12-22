@@ -1,7 +1,8 @@
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
-  backface-visibility: hidden; /* the animation at the end moves a little to the top,
+  backface-visibility: hidden;
+  /* the animation at the end moves a little to the top,
                                     we dont know why, but this is the way to fix it */
   margin-bottom: 6rem;
 
@@ -12,9 +13,11 @@
     letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
-    animation-timing-function: ease-out; /* fast at the beginning and slower at the end*/
+    animation-timing-function: ease-out;
+    /* fast at the beginning and slower at the end*/
 
     @include respond(phone) {
+      padding-top: 18rem;
       letter-spacing: 1rem;
       font-family: 5rem;
     }
@@ -52,11 +55,9 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(
-    to right,
-    $color-primary-light,
-    $color-primary-dark
-  );
+  background-image: linear-gradient(to right,
+      $color-primary-light,
+      $color-primary-dark);
 
   -webkit-background-clip: text;
   color: transparent;

@@ -34,10 +34,8 @@
     position: fixed;
     top: 6.5rem;
     right: 6.5rem;
-    background-image: radial-gradient(
-      $color-primary-light,
-      $color-primary-dark
-    );
+    background-image: radial-gradient($color-primary-light,
+        $color-primary-dark);
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
 
@@ -59,7 +57,7 @@
     left: 0;
     z-index: 1500;
     width: 0;
-    opacity: 0;
+    visibility: hidden;
     transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
 
@@ -78,6 +76,7 @@
   }
 
   &__link {
+
     &:link,
     &:visited {
       display: inline-block;
@@ -87,12 +86,10 @@
       color: $color-white;
       text-decoration: none;
       text-transform: uppercase;
-      background-image: linear-gradient(
-        120deg,
-        transparent 0%,
-        transparent 50%,
-        $color-white 50%
-      );
+      background-image: linear-gradient(120deg,
+          transparent 0%,
+          transparent 50%,
+          $color-white 50%);
       background-size: 230%;
       transition: all 0.4s;
 
@@ -111,12 +108,12 @@
   }
 
   // FUNCTIONALITY
-  &__checkbox:checked ~ &__background {
+  &__checkbox:checked~&__background {
     transform: scale(80);
   }
 
-  &__checkbox:checked ~ &__nav {
-    opacity: 1;
+  &__checkbox:checked~&__nav {
+    visibility: visible;
     width: 100%;
   }
 
@@ -124,6 +121,7 @@
   &__icon {
     position: relative;
     margin-top: 3.5rem;
+
     &,
     &::before,
     &::after {
@@ -158,16 +156,16 @@
     top: 1rem;
   }
 
-  &__checkbox:checked + &__button &__icon {
+  &__checkbox:checked+&__button &__icon {
     background-color: transparent;
   }
 
-  &__checkbox:checked + &__button &__icon::before {
+  &__checkbox:checked+&__button &__icon::before {
     transform: rotate(135deg);
     top: 0;
   }
 
-  &__checkbox:checked + &__button &__icon::after {
+  &__checkbox:checked+&__button &__icon::after {
     transform: rotate(-135deg);
     top: 0;
   }

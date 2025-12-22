@@ -1,4 +1,5 @@
 .btn {
+
   &,
   &:link,
   &:visited {
@@ -7,10 +8,11 @@
     padding: 1.5rem 4rem;
     display: inline-block;
     border-radius: 10rem;
-    transition: all 0.2s; /*transition property is shorthand */
+    transition: all 0.2s;
+    /*transition property is shorthand */
     position: relative;
     font-size: $default-font-size;
-
+    white-space: nowrap;
     //Change for the <button> element
     border: none;
     cursor: pointer;
@@ -73,6 +75,7 @@
 }
 
 .btn-text {
+
   &:link,
   &:visited {
     font-size: $default-font-size;
