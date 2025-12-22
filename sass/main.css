@@ -207,6 +207,7 @@ body {
     padding-top: 18rem;
     letter-spacing: 1rem;
     font-family: 5rem;
+    font-size: 4rem;
   }
 }
 
@@ -1345,8 +1346,10 @@ body {
 
 @media only screen and (max-width: 37.5em) {
   .header {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); */
+    /* clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 83%);
+    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 83%);
   }
 }
 
