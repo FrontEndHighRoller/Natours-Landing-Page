@@ -37,7 +37,9 @@
     background-image: radial-gradient($color-primary-light,
         $color-primary-dark);
     z-index: 1000;
-    transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+    transform: scale(1);
+    transition: transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
+    will-change: transform;
 
     @include respond(tab-port) {
       top: 4.5rem;
@@ -52,15 +54,18 @@
 
   &__nav {
     height: 100vh;
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1500;
-    width: 0;
-    visibility: hidden;
+    transform: scaleX(0);
+    transform-origin: left;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transition: transform 0.8s ease, opacity 0.4s ease;
+    will-change: transform, opacity;
   }
 
   &__list {
@@ -93,7 +98,7 @@
           transparent 50%,
           $color-white 50%);
       background-size: 230%;
-      transition: all 0.4s;
+      transition: background-position 0.4s ease, color 0.4s ease, transform 0.4s ease;
 
       span {
         margin-right: 1.5rem;
@@ -111,17 +116,17 @@
 
   // FUNCTIONALITY
   &__checkbox:checked~&__background {
-    transform: scale(80);
+    transform: scale(70);
   }
 
   &__checkbox:checked~&__nav {
+    transform: scaleX(1);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    width: 100%;
   }
 
-  //ICON
+  // ICON
   &__icon {
     position: relative;
     margin-top: 3.5rem;
@@ -133,6 +138,8 @@
       height: 2px;
       background-color: $color-grey-dark-3;
       display: inline-block;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      will-change: transform;
     }
 
     &::before,
@@ -140,24 +147,23 @@
       content: "";
       position: absolute;
       left: 0;
-      transition: all 0.2s;
     }
 
     &::before {
-      top: -0.8rem;
+      transform: translateY(-0.8rem);
     }
 
     &::after {
-      top: 0.8rem;
+      transform: translateY(0.8rem);
     }
   }
 
   &__button:hover &__icon::before {
-    top: -1rem;
+    transform: translateY(-1rem);
   }
 
   &__button:hover &__icon::after {
-    top: 1rem;
+    transform: translateY(1rem);
   }
 
   &__checkbox:checked+&__button &__icon {
@@ -166,11 +172,9 @@
 
   &__checkbox:checked+&__button &__icon::before {
     transform: rotate(135deg);
-    top: 0;
   }
 
   &__checkbox:checked+&__button &__icon::after {
     transform: rotate(-135deg);
-    top: 0;
   }
 }

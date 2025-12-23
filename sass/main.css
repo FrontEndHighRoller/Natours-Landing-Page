@@ -1403,10 +1403,13 @@ body {
   right: 6.5rem;
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
-  transition: -webkit-transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
-  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
-  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1), -webkit-transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
+  transition: transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
+  transition: transform 0.4s cubic-bezier(0.83, 0, 0.17, 1), -webkit-transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
+  will-change: transform;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -1425,16 +1428,23 @@ body {
 
 .navigation__nav {
   height: 100vh;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1500;
-  width: 0;
-  visibility: hidden;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  -webkit-transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  -webkit-transition: opacity 0.4s ease, -webkit-transform 0.8s ease;
+  transition: opacity 0.4s ease, -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease, opacity 0.4s ease;
+  transition: transform 0.8s ease, opacity 0.4s ease, -webkit-transform 0.8s ease;
+  will-change: transform, opacity;
 }
 
 .navigation__list {
@@ -1462,8 +1472,10 @@ body {
   text-transform: uppercase;
   background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
   background-size: 230%;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: background-position 0.4s ease, color 0.4s ease, -webkit-transform 0.4s ease;
+  transition: background-position 0.4s ease, color 0.4s ease, -webkit-transform 0.4s ease;
+  transition: background-position 0.4s ease, color 0.4s ease, transform 0.4s ease;
+  transition: background-position 0.4s ease, color 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
 }
 
 .navigation__link:link span, .navigation__link:visited span {
@@ -1479,15 +1491,16 @@ body {
 }
 
 .navigation__checkbox:checked ~ .navigation__background {
-  -webkit-transform: scale(80);
-          transform: scale(80);
+  -webkit-transform: scale(70);
+          transform: scale(70);
 }
 
 .navigation__checkbox:checked ~ .navigation__nav {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  width: 100%;
 }
 
 .navigation__icon {
@@ -1500,30 +1513,37 @@ body {
   height: 2px;
   background-color: #333;
   display: inline-block;
+  -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, -webkit-transform 0.3s ease;
+  will-change: transform;
 }
 
 .navigation__icon::before, .navigation__icon::after {
   content: "";
   position: absolute;
   left: 0;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
 }
 
 .navigation__icon::before {
-  top: -0.8rem;
+  -webkit-transform: translateY(-0.8rem);
+          transform: translateY(-0.8rem);
 }
 
 .navigation__icon::after {
-  top: 0.8rem;
+  -webkit-transform: translateY(0.8rem);
+          transform: translateY(0.8rem);
 }
 
 .navigation__button:hover .navigation__icon::before {
-  top: -1rem;
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
 }
 
 .navigation__button:hover .navigation__icon::after {
-  top: 1rem;
+  -webkit-transform: translateY(1rem);
+          transform: translateY(1rem);
 }
 
 .navigation__checkbox:checked + .navigation__button .navigation__icon {
@@ -1533,13 +1553,11 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
-  top: 0;
 }
 
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
-  top: 0;
 }
 
 .section-about {
