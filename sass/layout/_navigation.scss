@@ -58,6 +58,8 @@
     z-index: 1500;
     width: 0;
     visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
 
@@ -113,7 +115,9 @@
   }
 
   &__checkbox:checked~&__nav {
+    opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     width: 100%;
   }
 
