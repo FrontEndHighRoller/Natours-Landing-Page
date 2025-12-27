@@ -1,3 +1,5 @@
+![img](screen-1.png)
+
 Project Highlights:
 
 **🎨 Sass-Mastered Styling:**
@@ -26,3 +28,24 @@ The project's modular structure, facilitated by the @import rule, ensures a clea
 
 **🚀 Showcasing Sass Expertise:**
 - By incorporating Sass features to their fullest potential, the project serves as a testament to Sass mastery, making it an intriguing exploration for developers keen on advanced styling techniques.
+
+## ⚙️ How to Run Locally
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/FrontEndHighRoller/Natours-Landing-Page.git
+2. Open index.html in your browser
+3. Resize the screen to see responsive layouts and image switching in action 🎯
+
+---
+
+🙋‍♂️ Author
+Dennis Rumanek
+
+GitHub: https://github.com/FrontEndHighRoller
+
+LinkedIn: https://www.linkedin.com/in/dennis-rumanek/
+
+⭐ If you like this solution, feel free to star the repository!
+
+
